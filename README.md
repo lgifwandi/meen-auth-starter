@@ -1,11 +1,16 @@
-# meen-auth-starter-installation
+# meen-auth-starter-greatness
 
-*Example `.env`
+# Installation instructions:
+
+* Create a `.env` in the root of the project.
+
+example `.env`:
+
 ```
 PORT=3000
-DATABASE_URL=mongodb+srv://<username>:<password>@general-assembly.1wjse.mongodb.net/meen-auth-starter?retryWrites=true&w=majority
-SECRET=feedmeseymour
+DATABASE_URL=mongodb+srv://yourusername:yourpassword@cluster0.0x1xr.mongodb.net/meen-auth-starter?retryWrites=true&w=majority
+SECRET=makeupasecretphrasehere
 ```
 
-   *`npm init -y`
-   *`npm i`
+* `npm i`
+* `nodemon`
