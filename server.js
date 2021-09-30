@@ -20,6 +20,9 @@ app.use(
 const userController = require('./controllers/users');
 app.use('/users', userController);
 
+const sessionsController = require('./controllers/sessions');
+app.use('/sessions', sessionsController);
+
 // Database Configuration
 mongoose.connect(process.env.DATABASE_URL, {
 	useNewUrlParser: true,
@@ -31,6 +34,11 @@ const db = mongoose.connection;
 db.on('error', (err) => console.log(err.message + ' is mongod not running?'));
 db.on('connected', () => console.log('mongo connected'));
 db.on('disconnected', () => console.log('mongo disconnected'));
+
+// Temporary root route. Please remove me when you add views:
+app.get("/", (req, res) => {
+    res.send("Root route");
+  });
 
 // Listener
 const PORT = process.env.PORT;
