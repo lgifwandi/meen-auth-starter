@@ -4,6 +4,14 @@ const app = express();
 require('dotenv').config();
 const mongoose = require('mongoose');
 
+// Middleware
+// Body parser middleware: give us access to req.body
+app.use(express.urlencoded({ extended: true }));
+
+// Routes / Controllers
+const userController = require('./controllers/users');
+app.use('/users', userController);
+
 // Database Configuration
 mongoose.connect(process.env.DATABASE_URL, {
 	useNewUrlParser: true,
