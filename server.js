@@ -35,10 +35,18 @@ db.on('error', (err) => console.log(err.message + ' is mongod not running?'));
 db.on('connected', () => console.log('mongo connected'));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
-// Temporary root route. Please remove me when you add views:
-app.get("/", (req, res) => {
-    res.send("Root route");
-  });
+// Routes / Controllers
+app.get('/', (req, res) => {
+	if (req.session.currentUser) {
+		res.render('dashboard.ejs', {
+			currentUser: req.session.currentUser
+		});
+	} else {
+		res.render('index.ejs', {
+			currentUser: req.session.currentUser
+		});
+	}
+});
 
 // Listener
 const PORT = process.env.PORT;
